@@ -1,0 +1,13 @@
+Unset
+cloudbuild.yaml
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+args: ['build', '-t',
+'us-central1-docker.pkg.dev/snappy-byte-439812-b8/gcp-demo-repo/gcp-demo-app', '.']
+- name: 'gcr.io/cloud-builders/docker'
+args: ['push',
+'us-central1-docker.pkg.dev/PROJECT_ID/gcp-demo-repo/gcp-demo-app']
+images:
+- 'us-central1-docker.pkg.dev/PROJECT_ID/gcp-demo-repo/gcp-demo-app'
+options:
+logging: CLOUD_LOGGING_ONLY
